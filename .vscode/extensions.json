@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "Orta.vscode-jest",
+        "dsznajder.es7-react-js-snippets",
+        "willnemo.rtlcheatsheet",
+        "LucaMendes.React-Redux-Recoil-StyledComponents-Snippets"
+    ]
+}
