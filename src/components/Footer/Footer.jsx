@@ -1,5 +1,7 @@
 import React from 'react'
 import { useRecoilState } from 'recoil'
+
+import { Container, Box, Button, position, top } from '@mui/material'
 import i18n from 'i18next'
 
 import { languageAtom } from 'store/atoms/shared.atom'
@@ -18,7 +20,8 @@ const Footer = () => {
   }
 
   return (
-    <div>
+    <Container position= 'bottom' sx={{ border: 1 , textAlign: 'center' }}>
+
       {Object.keys(languages).map((key) => (
         key === lang ? (
           <small data-testid={`lang-${key}`} key={key}> {languages[key]} </small>
@@ -28,7 +31,8 @@ const Footer = () => {
           </span>
         )
       ))}
-    </div>
+
+    </Container >
   )
 }
 
