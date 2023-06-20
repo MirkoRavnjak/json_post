@@ -1,11 +1,12 @@
 import React from 'react'
+import { Container, Box, Button, position, top } from '@mui/material'
 
 const Header = () => {
 
   return (
-    <div>
+    <Container position= 'top' sx={{ border: 1 , textAlign: 'center' }}>
         React Template
-    </div>
+    </Container >
   )
 }
 

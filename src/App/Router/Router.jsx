@@ -4,6 +4,7 @@ import { createUseStyles } from 'react-jss'
 
 import Loading from 'components/Loading'
 import Header from 'components/Header'
+import Footer from 'components/Footer/'
 import PropTypes from 'prop-types'
 
 import styles from './Router.styles'
@@ -27,6 +28,7 @@ const Router = ({ isLoading }) => {
           </Routes>
         </Suspense>
       </div>
+      <Footer />
     </div>
   )
 }

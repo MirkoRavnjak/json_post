@@ -32,7 +32,6 @@ function App() {
       <ErrorBoundary>
         <div>
           <Router isLoading={loading} />
-          <Footer />
         </div>
       </ErrorBoundary>
     </ThemeProvider>
