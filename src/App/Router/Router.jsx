@@ -4,6 +4,11 @@ import { createUseStyles } from 'react-jss'
 
 import Loading from 'components/Loading'
 import Header from 'components/Header'
+import Footer from 'components/Footer/'
+import User from 'components/User/'
+import Posts from 'components/Posts/'
+import Post from 'components/Post/'
+
 import PropTypes from 'prop-types'
 
 import styles from './Router.styles'
@@ -24,9 +29,13 @@ const Router = ({ isLoading }) => {
         <Suspense fallback="Loading...">
           <Routes>
             <Route key="home" path="/" element={<Home /> } />
+            <Route key="user" path="/user" element={<User /> } />
+            <Route key="posts" path="/posts" element={<Posts /> } />
+            <Route key="post" path="/post" element={<Post /> } />
           </Routes>
         </Suspense>
       </div>
+      <Footer />
     </div>
   )
 }
