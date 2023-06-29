@@ -20,7 +20,7 @@ const Footer = () => {
   }
 
   return (
-    <Container position= 'bottom' sx={{ border: 1 , textAlign: 'center' }}>
+    <Container sx={{ position: 'fixed',left: 12, right: 12, bottom: 40 ,border: 1 , textAlign: 'center' }}>
 
       {Object.keys(languages).map((key) => (
         key === lang ? (
