@@ -6,7 +6,6 @@ import { useRecoilValue } from 'recoil'
 import i18n from 'common/i18n'
 import ErrorBoundary from 'components/ErrorBoundary'
 import { languageAtom } from 'store/atoms/shared.atom'
-import Footer from 'components/Footer'
 
 import theme from '../theme'
 
