@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { Grid } from '@mui/material'
-import { useNavigate, useParams } from 'react-router-dom'
-import UserUsername from 'components/UserUsername/UserUsername'
+import { useNavigate } from 'react-router-dom'
 import ActualPage from 'components/ActualPage/ActualPage'
-import PageControl from 'components/PageControl/PageControl'
 import { styled } from '@mui/material/styles'
 import Paper from '@mui/material/Paper'
+import PageControl from 'components/PageControl/PageControl'
 
-const Todos = () => {
+const AllTodos = () => {
 
   const navigate = useNavigate()
-  const { userid } = useParams()
+
   const [todos, setTodos] = useState([])
   const [pageSize, setPageSize] = useState(10)
   const [page, setPage] = useState(1)
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/users/${userid}/todos`)
+    fetch('https://jsonplaceholder.typicode.com/todos')
       .then((response) => {
         return response.json()
       }).then(data => {
+        console.log('todos.data = ', data)
         setTodos(data)
       }).catch((err) => {
         console.log('reject', err)
@@ -34,7 +34,6 @@ const Todos = () => {
     color: theme.palette.text.primary,
     margin: 3,
     overflowY: 'hidden',
-
   }))
 
   let from = (page - 1) * pageSize
@@ -42,8 +41,8 @@ const Todos = () => {
 
   const actualPage = todos.slice(from, to)
 
-  const handleItem = (userId, todoId) => {
-    navigate(`/users/${userId}/todos/${todoId}`)
+  const handleItem = (userid, todoid) => {
+    navigate(`/users/${userid}/todos/${todoid}`)
   }
 
   const handlePageChange = (event, page)=>{
@@ -52,42 +51,44 @@ const Todos = () => {
 
   const handlePageSize = (value) => {
     if (todos.length < value) {
-      setPageSize(todos.length)
+      setPageSize(todos.length) 
     } else {setPageSize(value)}
     setPage(1)
   }
 
   const numberOfPages = Math.ceil(todos.length / pageSize)
-  const allSize = [5,10,20,50]
+  const allSize = [5,10,20,50,todos.length,250]
 
   return (
     <Grid container direction="column"
-      marginTop={5}
+      marginTop={10}
       padding={5}
       rowheight={10}
       backgroundColor={'#cddccd' }
-    > ... User - All todos ...
-      <Item
-        key={userid}
-        sx={{ minHeight: 23, textAlign: 'center',width: '80%' ,margin: '0 auto' }}>
-        <UserUsername userid={userid} />
-      </Item>
+    > ... ALL  todos ...
+
+      <Grid item xs={8} mx={10} my={2} >
+        <Item >
+         ALL TODOS
+        </Item>
+      </Grid>
+
       <Grid container direction='row'>
-        <Grid item xs={1} ><Item > USER ID </Item></Grid>
-        <Grid item xs={1} ><Item > TODO ID </Item></Grid>
-        <Grid item xs={5} md={8} ><Item > TODO TITLE </Item></Grid>
-        <Grid item xs={1} md={2} ><Item > COMPLETED </Item></Grid>
+        <Grid item xs={1} ><Item sx={{ textAlign: 'center' }} > USER ID </Item></Grid>
+        <Grid item xs={1} ><Item sx={{ textAlign: 'center' }} > TODO ID </Item></Grid>
+        <Grid item xs={5} md={8} ><Item sx={{ textAlign: 'center' }} > TODO TITLE </Item></Grid>
+        <Grid item xs={1} md={2} ><Item sx={{ textAlign: 'center' }} > COMPLETED </Item></Grid>
       </Grid>
 
       <ActualPage
         actualPage={actualPage}
         page={page}
-        marginX='auto'
+        marginX={'auto'}
         role={'todos'}
-        handleItem={handleItem}/>
+        handleItem={handleItem}
+      />
 
       <PageControl
-        r
         numberOfPages={numberOfPages}
         allSize={[allSize]}
         pageSize={pageSize}
@@ -101,4 +102,4 @@ const Todos = () => {
   )
 }
 
-export default Todos
+export default AllTodos

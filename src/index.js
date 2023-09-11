@@ -19,3 +19,14 @@ root.render(<React.StrictMode>
   </BrowserRouter>
 </React.StrictMode>)
 
+/*
+root.render(
+  <BrowserRouter>
+    <RecoilRoot>
+      <Suspense fallback="Loading...">
+        <App />
+      </Suspense>
+    </RecoilRoot>
+  </BrowserRouter>
+)
+*/
