@@ -11,6 +11,7 @@ const AllTodos = () => {
   const navigate = useNavigate()
 
   const [todos, setTodos] = useState([])
+  const [error, setError] = useState('')
   const [pageSize, setPageSize] = useState(10)
   const [page, setPage] = useState(1)
 
@@ -19,10 +20,11 @@ const AllTodos = () => {
       .then((response) => {
         return response.json()
       }).then(data => {
-        console.log('todos.data = ', data)
+
         setTodos(data)
       }).catch((err) => {
-        console.log('reject', err)
+        setError(err.message)
+        alert ('reject', error)
       })
   }, [])
 
@@ -51,7 +53,7 @@ const AllTodos = () => {
 
   const handlePageSize = (value) => {
     if (todos.length < value) {
-      setPageSize(todos.length) 
+      setPageSize(todos.length)
     } else {setPageSize(value)}
     setPage(1)
   }

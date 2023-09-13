@@ -4,20 +4,18 @@ import { Grid } from '@mui/material'
 
 const UserUsername = ( { userid } ) => {
 
-  console.log('USER USER id = ', userid)
-
   const [userName , setUserName] = useState('')
+  const [error, setError] = useState('')
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/users/${userid}`)
       .then((response) => {
         return response.json()
       }).then(data => {
-        console.log('USER USER DATA = ', data)
         setUserName(data.name)
-        console.log('USER USER NAME', userName)
       }).catch((err) => {
-        console.log('reject reason', err)
+        setError(err.message)
+        alert ('reject', error)
 
       })
   }, [userid])

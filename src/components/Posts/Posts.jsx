@@ -14,6 +14,7 @@ const Posts = () => {
   const [posts, setPosts] = useState([])
   const [pageSize, setPageSize] = useState(5)
   const [page, setPage] = useState(1)
+  const [error, setError] = useState('')
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -23,7 +24,8 @@ const Posts = () => {
       }).then(data => {
         setPosts(data)
       }).catch((err) => {
-        console.log('reject', err)
+        setError(err.message)
+        alert ('reject', error)
       })
   }, [userid])
 

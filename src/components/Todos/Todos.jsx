@@ -12,6 +12,7 @@ const Todos = () => {
   const navigate = useNavigate()
   const { userid } = useParams()
   const [todos, setTodos] = useState([])
+  const [error, setError] = useState('')
   const [pageSize, setPageSize] = useState(10)
   const [page, setPage] = useState(1)
 
@@ -22,7 +23,8 @@ const Todos = () => {
       }).then(data => {
         setTodos(data)
       }).catch((err) => {
-        console.log('reject', err)
+        setError(err.message)
+        alert ('reject', error)
       })
   }, [])
 
@@ -87,7 +89,6 @@ const Todos = () => {
         handleItem={handleItem}/>
 
       <PageControl
-        r
         numberOfPages={numberOfPages}
         allSize={[allSize]}
         pageSize={pageSize}

@@ -11,9 +11,9 @@ import UserUsername from 'components/UserUsername/UserUsername'
 const Post = () => {
 
   const { userid, postid } = useParams()
-  console.log('Post userid, postid = ',userid, postid)
 
   const [post, setPost] = useState('')
+  const [error, setError] = useState('')
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${postid}`)
@@ -22,7 +22,8 @@ const Post = () => {
       }).then(data => {
         setPost(data)
       }).catch((err) => {
-        console.log('reject', err)
+        setError(err.message)
+        alert ('reject', error)
       })
   }, [postid])
 

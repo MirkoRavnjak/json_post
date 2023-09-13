@@ -31,6 +31,7 @@ const AllPosts = () => {
       } catch (err) {
         setError(err.message)
         setPosts([])
+        alert ('reject', error)
       }
     }
     getData()
