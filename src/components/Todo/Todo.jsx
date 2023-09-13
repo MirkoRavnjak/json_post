@@ -11,6 +11,7 @@ const Todo = () => {
 
   const { userid, todoid } = useParams()
   const [todo, setTodo] = useState([])
+  const [error, setError] = useState('')
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/todos/${todoid}`)
@@ -19,7 +20,8 @@ const Todo = () => {
       }).then(data => {
         setTodo(data)
       }).catch((err) => {
-        console.log('reject', err)
+        setError(err.message)
+        alert ('reject', error)
       })
   }, [])
 

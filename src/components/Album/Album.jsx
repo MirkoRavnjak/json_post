@@ -10,6 +10,7 @@ const Album = () => {
 
   const { userid, albumid } = useParams()
   const [album, setAlbum] = useState('')
+  const [error, setError] = useState('')
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/albums/${albumid}`)
@@ -18,7 +19,8 @@ const Album = () => {
       }).then(data => {
         setAlbum(data)
       }).catch((err) => {
-        console.log('reject', err)
+        setError(err.message)
+        alert ('reject', error)
       })
   }, [albumid])
 
