@@ -16,6 +16,12 @@ export const userIdAtom = atom({
   effects_UNSTABLE: [persistAtom],
 })
 
+export const src = atom({
+  key: 'src',
+  default: null,
+  effects_UNSTABLE: [persistAtom]
+})
+
 export const userNameAtom = atom({
   key: 'userName',
   default: null,

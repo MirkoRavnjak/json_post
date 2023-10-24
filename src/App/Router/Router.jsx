@@ -9,19 +9,19 @@ import Header from 'components/Header'
 import Footer from 'components/Footer'
 
 import User from 'components/User'
-import Users from 'components/Users/Users'
+import Users from 'components/ALL/Users/Users'
 
 import Post from 'components/Post'
 import Posts from 'components/Posts'
-import AllPosts from 'components/AllPosts'
+import AllPosts from 'components/ALL/AllPosts'
 
 import Todo from 'components/Todo'
 import Todos from 'components/Todos/Todos'
-import AllTodos from 'components/AllTodos/AllTodos'
+import AllTodos from 'components/ALL/AllTodos/AllTodos'
 
 import Album from 'components/Album'
 import Albums from 'components/Albums'
-import AllAlbums from 'components/ALLAlbums/AllAlbums'
+import AllAlbums from 'components/ALL/AllAlbums/AllAlbums'
 
 import Error from 'components/Error'
 
@@ -43,14 +43,15 @@ const Router = ({ isLoading }) => {
     >
 
       <Grid item
+
         bgcolor={'#cddccd'}
-        xs={10} md={8} lg={6}
+        xs={6}
         mx='auto'
         mt={5}
       >
         <Header />
       </Grid>
-      <Grid item itemalign= {'center'} >
+      <Grid item mx= {'auto'} >
 
         <Routes>
           <Route key="home" path='/' element= {< Home />} />
@@ -74,14 +75,15 @@ const Router = ({ isLoading }) => {
         </Routes>
 
       </Grid>
-      <Grid item
 
-        width={'10%'}
+      <Grid item
+        xs={3}
+        mx={'auto'}
+        px={'auto'}
         minHeight={25}
-        mx={'25%'}
         position={'fixed'}
         bottom={10}
-
+        left={'45%'}
       >
         <Footer />
       </Grid>
@@ -100,5 +102,4 @@ Router.propTypes = {
 Router.defaultProps = {
   isLoading: false
 }
-
 
