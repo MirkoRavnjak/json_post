@@ -10,7 +10,7 @@ const Header = () => {
   const navigate = useNavigate()
   const [isHome, setIsHome] = useState(true)
   let location = useLocation()
-  const [localePath, setLocalePath] = useState((location.pathname).toUpperCase())
+  const [localePath, setLocalePath] = useState(location.pathname)
 
   useEffect(()=> {
     if (location.pathname === '/' || location.pathname === '/error') {
@@ -19,7 +19,7 @@ const Header = () => {
     }
     else {
       setIsHome(true)
-      setLocalePath((location.pathname).toUpperCase())
+      setLocalePath(location.pathname)
     }},[location])
 
   const handleHomeButtonClick = () => {

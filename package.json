@@ -6,6 +6,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@material-ui/core": "^4.12.4",
+    "@mui/icons-material": "^5.14.9",
     "@mui/material": "^5.13.5",
     "@mui/styled-engine-sc": "^5.12.0",
     "@mui/x-data-grid": "^6.8.0",
@@ -48,6 +49,7 @@
     "test:coverage-ci": "cross-env NODE_ENV=commonjs NODE_PATH=src/ BABEL_ENV=development BABEL_PATH=src/ jest --ci --reporters=default",
     "lint": "cross-env eslint --ext .js,.jsx src"
   },
+ 
   "eslintConfig": {
     "extends": [
       "react-app",

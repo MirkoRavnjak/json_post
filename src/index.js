@@ -8,7 +8,7 @@ import App from './App'
 
 const container = document.getElementById('root')
 const root = createRoot(container)
-
+/*
 root.render(<React.StrictMode>
   <BrowserRouter>
     <RecoilRoot>
@@ -18,8 +18,8 @@ root.render(<React.StrictMode>
     </RecoilRoot>
   </BrowserRouter>
 </React.StrictMode>)
+*/
 
-/*
 root.render(
   <BrowserRouter>
     <RecoilRoot>
@@ -29,4 +29,4 @@ root.render(
     </RecoilRoot>
   </BrowserRouter>
 )
-*/
+

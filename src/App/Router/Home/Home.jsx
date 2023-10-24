@@ -9,26 +9,25 @@ const Home = () => {
   return (
     <Grid
       container
-      width={'60%'}
-      position={'absolute'}
-      top={100}
+      my={5.8}
       justifyContent="space-evenly"
-      padding={5}
+      py={5}
+      mx={'auto'}
       sx={{ backgroundColor: '#e9ede9', borderRadius: '8px' }}
     >
-      <Grid item xs={2} p={'auto'} sx={{ backgroundColor: '#f7f7f7' , borderRadius: '8px' }}>
+      <Grid item xs={2} p={'auto'} >
         <Button variant="contained" onClick={() => navigate('/users')} > ALL USERS </Button>
       </Grid>
 
-      <Grid item xs={2} p={'auto'} sx={{ backgroundColor: '#f7f7f7' , borderRadius: '8px' }}>
+      <Grid item xs={2} p={'auto'} >
         <Button variant="contained" onClick={() => navigate('/allposts')} > ALL POSTS </Button>
       </Grid>
 
-      <Grid item xs={2} p={'auto'} sx={{ backgroundColor: '#f7f7f7' , borderRadius: '8px' }}>
+      <Grid item xs={2} p={'auto'}>
         <Button variant="contained" onClick={() => navigate( './allalbums')} > ALL ALBUMS </Button>
       </Grid>
 
-      <Grid item xs={2} p={'auto'} sx={{ backgroundColor: '#f7f7f7' , borderRadius: '8px' }}>
+      <Grid item xs={2} p={'auto'} >
         <Button variant="contained" onClick={() => navigate( './alltodos')} > ALL TODOS </Button>
       </Grid>
 
